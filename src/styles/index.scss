@@ -297,7 +297,7 @@ body {
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-        width: 80%;
+        width: 100%;
         max-height: 90%;
         & img {
             width: 25px;
@@ -401,4 +401,5 @@ body {
 
 .text__first-bg {
     background-color: $font-color-active;
+    border-radius: 10px;
 }
