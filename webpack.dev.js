@@ -27,6 +27,7 @@ module.exports = {
             {
                 test: /\.(scss|css)$/,
                 use: [
+                    // cambiado a igual que el de prod por bug - había delay en la carga del css
                     {
                         loader: MiniCssExtractPlugin.loader
                     },
