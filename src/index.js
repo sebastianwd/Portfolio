@@ -21,15 +21,17 @@ $(".home-page .blast").each(function() {
     }
 
     if (a == 1200) {
-        a = 1400;
+        a = 1000;
     }
 
     var el = $(this);
 
     if (a == 400) {
         setTimeout(function() {
-            $(".home-page h1 img").addClass("animated rotateIn");
-        }, 500);
+            $(".home-page h1 .no-blast .blast").addClass(
+                "animated rotateIn faster"
+            );
+        }, 1100);
     }
 
     setTimeout(function() {
@@ -37,7 +39,7 @@ $(".home-page .blast").each(function() {
     }, a);
 
     if (a < 1200) {
-        a = a + 100;
+        a = a + 80;
     } else {
         a = a + 70;
     }
@@ -83,12 +85,12 @@ $(".home-page .flat-button").mouseenter(function() {
 });
 // envelope animation
 window.onload = function() {
-    var tl = new TimelineLite({ delay: 1 }),
+    var tl = new TimelineLite({ delay: 0.25 }),
         firstBg = document.querySelectorAll(".text__first-bg"),
         word = document.querySelectorAll(".text__word");
 
     tl.to(firstBg, 0.2, { scaleX: 1 })
 
-        .to(word, 0.3, { opacity: 1 }, "-=0.1")
-        .to(firstBg, 0.4, { scaleX: 0 });
+        .to(word, 0.2, { opacity: 1 }, "-=0.1")
+        .to(firstBg, 0.3, { scaleX: 0 });
 };
