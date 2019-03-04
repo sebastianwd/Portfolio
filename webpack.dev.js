@@ -1,6 +1,7 @@
 const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     devtool: "eval-cheap-module-source-map",
@@ -22,15 +23,12 @@ module.exports = {
                     presets: ["env"]
                 }
             },
+
             {
                 test: /\.(scss|css)$/,
                 use: [
                     {
-                        // creates style nodes from JS strings
-                        loader: "style-loader",
-                        options: {
-                            sourceMap: true
-                        }
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
                         // translates CSS into CommonJS
@@ -51,6 +49,7 @@ module.exports = {
                     // Please note we are not running postcss here
                 ]
             },
+
             {
                 // Load all images as base64 encoding if they are smaller than 8192 bytes
                 test: /\.(png|jpg|gif|svg)$/,
@@ -64,6 +63,13 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: "file-loader",
+                options: {
+                    name: "fonts/[name].[ext]"
+                }
             }
         ]
     },
@@ -71,6 +77,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./index.html",
             inject: true
+        }),
+        new MiniCssExtractPlugin({
+            filename: "styles.[contenthash].css"
         })
     ]
 };
