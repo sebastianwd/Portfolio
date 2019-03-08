@@ -94,7 +94,7 @@
         }
     }
 
-    .container {
+    .my-container {
         width: 100%;
         height: auto;
         padding-bottom: 58px;
@@ -108,7 +108,7 @@
         left: 0;
         opacity: 0.5;
     }
-    .container.gallery {
+    .my-container.gallery {
         position: absolute;
         min-height: 1200px;
     }
@@ -124,12 +124,12 @@
         transform: none !important;
         margin-top: 170px;
     }
-    .container.about .text-zone,
-    .container.skills .text-zone {
+    .my-container.about .text-zone,
+    .my-container.skills .text-zone {
         width: 80%;
         min-height: 0;
     }
-    #myCanvasContainer {
+    #myCanvasmy-container {
         position: relative;
         margin: 0 10% !important;
         top: 0 !important;
@@ -203,8 +203,5 @@
     .home-page h1 {
         font-size: 10vw !important;
         line-height: calc(10vw - 25px) !important;
-    }
-    #page {
-        width: 90vw;
     }
 }

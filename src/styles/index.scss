@@ -10,6 +10,19 @@
 $bg-color-darker: #181818;
 $font-color-active: #08fdd8;
 
+@mixin flx-c($height: "", $align-items: "") {
+    @if $height != "" and $align-items!= "" {
+        align-items: $align-items;
+        display: flex;
+        height: $height;
+    } @else if $align-items!= "" {
+        display: flex;
+        align-items: $align-items;
+    } @else {
+        display: flex;
+    }
+}
+
 //font stack(s)
 $cabin: "Titillium Web", sans-serif;
 $belle: "La Belle Aurore", cursive;
@@ -129,7 +142,7 @@ textarea {
 
 body {
     background: #252627;
-    overflow: hidden;
+    /*  overflow: hidden;*/
     display: block;
 }
 
@@ -267,12 +280,12 @@ body {
     height: 100%;
     position: absolute;
 }
-.container {
+.my-container {
     width: 100%;
-    height: 90%;
+    height: 100vh;
     min-height: 566px;
     position: absolute;
-    top: 5%;
+    top: 0%;
     margin: 0 auto;
     z-index: 1;
     -webkit-transform-style: preserve-3d;
@@ -404,4 +417,8 @@ body {
 .text__first-bg {
     background-color: $font-color-active;
     border-radius: 10px;
+}
+
+.cbg-color-dark {
+    background-color: #252627;
 }
