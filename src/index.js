@@ -61,7 +61,9 @@ setTimeout(function() {
         );
     });
 }, 3000);
-
+setTimeout(() => {
+    $(".home-page .flat-button").removeClass("slideY");
+}, 1800);
 setTimeout(function() {
     $(".home-page .flat-button").addClass("animated bounceIn");
     $(".home-page .flat-button").one(
@@ -75,7 +77,7 @@ setTimeout(function() {
 
 $(".home-page .flat-button").mouseenter(function() {
     var el = $(this);
-
+    $(this).removeClass("slideY");
     $(this).addClass("animated rubberBand");
     $(this).one(
         "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",

@@ -76,3 +76,19 @@
         transform: translateZ(-500px) translateX(-200%);
     }
 }
+
+@keyframes slideY {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.25;
+    }
+    75% {
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,3 +1,4 @@
+import { TweenMax } from "gsap/TweenMax";
 function reset($elem) {
     $elem.before($elem.clone(true));
     var $newElem = $elem.prev();
@@ -30,3 +31,21 @@ $("._iterateEffects")
             // }, 700);
         }, 400);
     });
+
+$(".pt-page").mousemove(function(e) {
+    parallaxIt(e, ".one", -150);
+    parallaxIt(e, ".two", -40);
+});
+
+function parallaxIt(e, target, movement) {
+    var $this = $(".pt-page");
+    var relX = e.pageX - $this.offset().left;
+    var relY = e.pageY - $this.offset().top;
+
+    TweenMax.to(target, 1, {
+        x: ((relX - $this.width() / 2) / $this.width()) * movement,
+        y: ((relY - $this.height() / 2) / $this.height()) * movement
+    });
+}
+var scene = document.getElementById("scene");
+var parallaxInstance = new Parallax(scene);
