@@ -7,7 +7,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 9999999999999;
+        z-index: 9999999;
         display: block !important;
         opacity: 1 !important;
     }
@@ -18,190 +18,31 @@
 }
 
 @media (max-width: 960px) {
-    #nav_bar {
-        width: 100%;
-        height: 60px;
-        position: absolute;
-        top: 0;
+    .logo-container {
+        top: auto;
         left: 0;
-        z-index: 3;
-        min-height: 0;
     }
-
-    .logo {
-        float: left;
-        padding: 2px 0;
-        margin-right: 20px;
-        img {
-            display: block;
-            margin: 5px 15px;
-            width: auto;
-            height: auto;
-        }
-        .shadow-logo {
-            font-size: 68px;
-        }
-    }
-
-    #nav_bar nav {
-        width: 52%;
-        position: absolute;
-        left: 45%;
-        margin-left: -19%;
-        float: left;
-        overflow: hidden;
-        text-align: center;
-        height: 60px;
-        top: 0;
-        margin-top: 0;
-        a {
-            float: left;
-            margin-left: 14%;
-            line-height: 60px;
-            height: 60px;
-            &:first-child {
-                margin-left: 0;
-            }
-            &:nth-child(3):after,
-            &:nth-child(4):after,
-            &:nth-child(5):after {
-                margin-left: -60%;
+    .app-container {
+        flex-direction: column; /*stackear uno debajo de otro*/
+        .sidebar {
+            width: 100%;
+            max-width: 100%;
+            flex-direction: row;
+            nav {
+                flex-direction: row;
+                a {
+                    flex-basis: 45px;
+                }
             }
         }
-    }
-
-    #nav_bar ul {
-        position: static;
-        bottom: 20px;
-        width: auto;
-        height: 60px;
-        line-height: 60px;
-        display: block;
-        padding: 0;
-        list-style: none;
-        text-align: center;
-        margin: 0;
-        float: right;
-        li {
-            float: right;
-            height: 60px;
-            line-height: 60px;
-            margin: 0 10px;
-            a {
-                line-height: 60px;
-                padding: 0;
+        .pt-page {
+            align-items: flex-start !important; /*solcuion para q scrolee*/
+            .block-1 {
+                flex-basis: 60% !important;
+            }
+            .block-2 {
+                flex-basis: 40% !important;
             }
         }
-    }
-
-    .my-container {
-        width: 100%;
-        height: auto;
-        padding-bottom: 58px;
-        box-sizing: border-box;
-        position: relative;
-        top: 0;
-        overflow: hidden;
-    }
-    .bg {
-        right: 0;
-        left: 0;
-        opacity: 0.5;
-    }
-    .my-container.gallery {
-        position: absolute;
-        min-height: 1200px;
-    }
-
-    .text-zone {
-        position: static !important;
-        max-height: auto;
-        min-height: 350px;
-        float: left;
-        margin-left: 10%;
-        -webkit-transform: none !important;
-        -ms-transform: none !important;
-        transform: none !important;
-        margin-top: 170px;
-    }
-    .my-container.about .text-zone,
-    .my-container.skills .text-zone {
-        width: 80%;
-        min-height: 0;
-    }
-    #myCanvasmy-container {
-        position: relative;
-        margin: 0 10% !important;
-        top: 0 !important;
-        left: 0 !important;
-        display: block;
-        clear: both;
-        width: 80%;
-        height: auto;
-    }
-
-    #myCanvas {
-        position: relative;
-        width: 100%;
-        margin: 0;
-    }
-
-    body {
-        overflow: auto;
-    }
-}
-
-@media (max-width: 750px) {
-    #nav_bar nav a {
-        margin-left: 10%;
-    }
-
-    h1 {
-        font-size: 47px !important;
-        line-height: 40px !important;
-    }
-}
-
-@media (max-width: 530px) {
-    body {
-        overflow-x: hidden;
-    }
-
-    #nav_bar {
-        position: fixed;
-        ul {
-            display: none;
-        }
-    }
-
-    #nav_bar nav {
-        width: 100%;
-        position: fixed;
-        left: 100%;
-        opacity: 0;
-        margin-left: 0;
-        float: left;
-        overflow: hidden;
-        text-align: center;
-        height: 60px;
-        top: 60px;
-        margin-top: 0;
-        background: #181818;
-        transition: all 0.3s ease-out;
-        a {
-            float: left;
-            margin-left: 0 !important;
-            line-height: 60px;
-            height: 60px;
-            width: 20%;
-        }
-        &.show {
-            left: 0;
-            opacity: 1;
-        }
-    }
-    .home-page h1 {
-        font-size: 10vw !important;
-        line-height: calc(10vw - 25px) !important;
     }
 }

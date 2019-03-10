@@ -5,7 +5,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     devtool: "eval-cheap-module-source-map",
-    entry: "./src/index.js",
+    entry: {
+        index: "./src/index.js"
+    },
     devServer: {
         port: 5500,
         contentBase: path.join(__dirname, "dist")
@@ -71,13 +73,30 @@ module.exports = {
                 options: {
                     name: "fonts/[name].[ext]"
                 }
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: "html-loader",
+                    options: {
+                        interpolate: true
+                    }
+                }
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: "index.html",
             template: "./index.html",
-            inject: true
+            inject: true,
+            chunks: ["index"]
+        }),
+        new HtmlWebpackPlugin({
+            filename: "about.html",
+            template: "./about.html",
+            inject: true,
+            chunks: ["index"]
         }),
         new MiniCssExtractPlugin({
             filename: "styles.[contenthash].css"

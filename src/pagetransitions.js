@@ -20,7 +20,7 @@ $("._iterateEffects")
             $(".pt-page-" + $this.data("animation")).removeClass(
                 "pt-page-current"
             );
-        }, 500);
+        }, 400);
 
         setTimeout(() => {
             var $this2 = reset($(".pt-page-2"));
@@ -28,5 +28,5 @@ $("._iterateEffects")
             // setTimeout(() => {
             //     $(".pt-page-2").removeClass("cbg-color-dark");
             // }, 700);
-        }, 500);
+        }, 400);
     });

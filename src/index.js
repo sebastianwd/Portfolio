@@ -5,7 +5,7 @@ require("../node_modules/popper.js/dist/popper");
 require("../node_modules/jquery/src/jquery");
 require("../node_modules/blast-text/jquery.blast");
 require("./pagetransitions.js");
-import { TweenMax, Power2, TimelineLite } from "gsap/TweenMax";
+import { TweenLite, Power2, TimelineLite } from "gsap/TweenMax";
 
 $("#nav_bar nav a").removeClass("active");
 $(".home-link").addClass("active");

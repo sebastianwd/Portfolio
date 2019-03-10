@@ -10,7 +10,9 @@ const buildPath = path.resolve(__dirname, "dist");
 
 module.exports = {
     //devtool: "source-map",
-    entry: "./src/index.js",
+    entry: {
+        index: "./src/index.js"
+    },
     output: {
         filename: "[name].[hash:20].js",
         path: buildPath
@@ -79,14 +81,30 @@ module.exports = {
                 options: {
                     name: "fonts/[name].[ext]"
                 }
+            },
+            {
+                test: /\.(html)$/,
+                use: {
+                    loader: "html-loader",
+                    options: {
+                        interpolate: true
+                    }
+                }
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: "about.html",
+            template: "./about.html",
+            inject: "body",
+            chunks: ["index"]
+        }),
+        new HtmlWebpackPlugin({
+            filename: "index.html",
             template: "./index.html",
-            // Inject the js bundle at the end of the body of the given template
-            inject: "body"
+            inject: "body",
+            chunks: ["index"]
         }),
         new CleanWebpackPlugin(buildPath),
         new FaviconsWebpackPlugin({
