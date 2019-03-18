@@ -1,10 +1,12 @@
 require("normalize.css/normalize.css");
 require("./styles/index.scss");
 require("./styles/media.scss");
+require("../node_modules/jquery/dist/jquery");
 import $ from "jquery";
 window.jQuery = $;
 window.$ = $;
 require("../node_modules/blast-text/jquery.blast");
+require("./myGallery");
 require("./pagetransitions.js");
 require("../node_modules/smoothstate-cachefix/smoothState");
 require("../node_modules/toggle-aria/jquery.toggleAria");

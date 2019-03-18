@@ -1,3 +1,7 @@
+import $ from "jquery";
+window.jQuery = $;
+window.$ = $;
+
 var $parent = $("#main"),
     $aside = $("#aside"),
     $asideTarget = $aside.find(".aside--details"),
@@ -94,4 +98,4 @@ slides.forEach(function(slide) {
 });
 
 str += "</ul>";
-document.getElementById("slideContainer").innerHTML = str;
+// document.getElementById("slideContainer").innerHTML = str;

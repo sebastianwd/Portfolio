@@ -1,3 +1,7 @@
+import $ from "jquery";
+window.jQuery = $;
+window.$ = $;
+
 import { TweenMax } from "gsap/TweenMax";
 require("../node_modules/jquery-tagcanvas/jquery.tagcanvas");
 
