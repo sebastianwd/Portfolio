@@ -1,99 +1,331 @@
 require("normalize.css/normalize.css");
 require("./styles/index.scss");
 require("./styles/media.scss");
-require("../node_modules/popper.js/dist/popper");
-require("../node_modules/jquery/src/jquery");
+import $ from "jquery";
+window.jQuery = $;
+window.$ = $;
 require("../node_modules/blast-text/jquery.blast");
 require("./pagetransitions.js");
+require("../node_modules/smoothstate-cachefix/smoothState");
+require("../node_modules/toggle-aria/jquery.toggleAria");
+import { BlastTitle, animationEnd } from "./pagetransitions.js";
 import { TweenLite, Power2, TimelineLite } from "gsap/TweenMax";
 
-$("#nav_bar nav a").removeClass("active");
-$(".home-link").addClass("active");
+const APP = {
+    common: {
+        init: function() {
+            console.log("js en común");
+        }
+    },
+    Index: {
+        init: function() {
+            console.log("Index");
 
-$(".home-page h1").blast({
-    delimiter: "character",
-    tag: "span"
-});
+            const curPage = ".pt-1";
+            BlastTitle("character", curPage);
 
-let a = 0;
-$(".home-page .blast").each(function() {
-    if (a == 300) {
-        a = 400;
-    }
+            setTimeout(() => {
+                $(curPage + " .flat-button").removeClass("slideY");
+            }, 1800);
+            setTimeout(function() {
+                $(curPage + " .flat-button").addClass("animated bounceIn");
+                $(curPage + " .flat-button").one(animationEnd, function() {
+                    $(curPage + " .flat-button").removeClass(
+                        "animated bounceIn"
+                    );
+                    $(curPage + " .flat-button").css("opacity", 1);
+                });
+            }, 2000);
 
-    if (a == 1200) {
-        a = 1000;
-    }
+            $(curPage + " .flat-button").on("mouseenter", function() {
+                let el = $(this);
+                el.removeClass("slideY").addClass("animated rubberBand");
+                el.one(animationEnd, function() {
+                    el.removeClass("animated rubberBand");
+                });
+            });
+            // envelope animation
+            function envelope() {
+                var tl = new TimelineLite({ delay: 0.25 }),
+                    firstBg = document.querySelectorAll(".text__first-bg"),
+                    word = document.querySelectorAll(".text__word");
 
-    var el = $(this);
+                tl.to(firstBg, 0.2, { scaleX: 1 })
 
-    if (a == 400) {
-        setTimeout(function() {
-            $(".home-page h1 .no-blast .blast").addClass(
-                "animated rotateIn faster"
-            );
-        }, 1100);
-    }
-
-    setTimeout(function() {
-        el.addClass("animated bounceIn");
-    }, a);
-
-    if (a < 1200) {
-        a = a + 80;
-    } else {
-        a = a + 70;
-    }
-});
-setTimeout(function() {
-    $(".home-page .blast").removeClass("animated bounceIn");
-    $(".home-page .blast").css("opacity", 1);
-
-    $(".home-page .blast").mouseenter(function() {
-        var el = $(this);
-
-        $(this).addClass("animated rubberBand");
-        $(this).one(
-            "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
-            function() {
-                el.removeClass("animated rubberBand");
+                    .to(word, 0.2, { opacity: 1 }, "-=0.1")
+                    .to(firstBg, 0.3, { scaleX: 0 });
             }
-        );
-    });
-}, 3000);
-setTimeout(() => {
-    $(".home-page .flat-button").removeClass("slideY");
-}, 1800);
-setTimeout(function() {
-    $(".home-page .flat-button").addClass("animated bounceIn");
-    $(".home-page .flat-button").one(
-        "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
-        function() {
-            $(".home-page .flat-button").removeClass("animated bounceIn");
-            $(".home-page .flat-button").css("opacity", 1);
+            envelope();
         }
-    );
-}, 2000);
+    },
+    About: {
+        init: function() {
+            console.log("About");
+            const curPage = ".pt-2";
+            BlastTitle("character", curPage);
 
-$(".home-page .flat-button").mouseenter(function() {
-    var el = $(this);
-    $(this).removeClass("slideY");
-    $(this).addClass("animated rubberBand");
-    $(this).one(
-        "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
-        function() {
-            el.removeClass("animated rubberBand");
+            setTimeout(function() {
+                $(" h1 .blast").removeClass("animated bounceIn");
+                $(" h1 .blast").css("opacity", 1);
+
+                $(" h1 .blast").mouseenter(function() {
+                    var el = $(this);
+
+                    el.addClass("animated rubberBand");
+                    el.one(animationEnd, function() {
+                        el.removeClass("animated rubberBand");
+                    });
+                });
+            }, 1000);
+
+            $(" p").blast({
+                delimiter: "word",
+                tag: "span"
+            });
+
+            setTimeout(() => {
+                $("p").css("opacity", 1);
+            }, 200);
+
+            setTimeout(() => {
+                $(".blast").mouseenter(function() {
+                    var el = $(this);
+                    el.addClass("animated rubberBand");
+                    el.one(animationEnd, function() {
+                        el.removeClass("animated rubberBand");
+                    });
+                });
+            }, 1000);
         }
-    );
-});
-// envelope animation
-window.onload = function() {
-    var tl = new TimelineLite({ delay: 0.25 }),
-        firstBg = document.querySelectorAll(".text__first-bg"),
-        word = document.querySelectorAll(".text__word");
+    },
+    Skills: {
+        init: function() {
+            console.log("skills");
+            const curPage = ".pt-3";
+            BlastTitle("word", curPage);
 
-    tl.to(firstBg, 0.2, { scaleX: 1 })
+            setTimeout(function() {
+                $(" h1 .blast").removeClass("animated bounceIn");
+                $(" h1 .blast").css("opacity", 1);
 
-        .to(word, 0.2, { opacity: 1 }, "-=0.1")
-        .to(firstBg, 0.3, { scaleX: 0 });
+                $(" h1 .blast").mouseenter(function() {
+                    var el = $(this);
+
+                    el.addClass("animated rubberBand");
+                    el.one(animationEnd, function() {
+                        el.removeClass("animated rubberBand");
+                    });
+                });
+            }, 1000);
+
+            $(" p").blast({
+                delimiter: "word",
+                tag: "span"
+            });
+
+            setTimeout(() => {
+                $("p").css("opacity", 1);
+            }, 200);
+
+            setTimeout(() => {
+                $(".blast").mouseenter(function() {
+                    var el = $(this);
+                    el.addClass("animated rubberBand");
+                    el.one(animationEnd, function() {
+                        el.removeClass("animated rubberBand");
+                    });
+                });
+            }, 1000);
+            $("#myCanvas").tagcanvas({
+                textColour: "#08FDD8",
+                outlineThickness: 0.5,
+                outlineColour: "#fe0853",
+                maxSpeed: 0.05,
+                freezeActive: true,
+                shuffleTags: true,
+                shape: "sphere",
+                zoom: 0.9,
+                textFont: null,
+                pinchZoom: true,
+                freezeDecel: true,
+                fadeIn: 3000,
+                initial: [0.3, -0.1],
+                depth: 0.8,
+                noSelect: false,
+                dragControl: true
+            });
+        }
+    }
 };
+
+const UTIL = {
+    exec: function(controller, action) {
+        var ns = APP,
+            action = action === undefined ? "init" : action;
+        if (
+            controller !== "" &&
+            ns[controller] &&
+            typeof ns[controller][action] == "function"
+        ) {
+            ns[controller][action]();
+        }
+    },
+    init: function() {
+        var body = $("._load"),
+            controller = body.data("load"),
+            action = body.data("load-action");
+        UTIL.exec("common");
+        UTIL.exec(controller);
+        if (action !== undefined && action !== "") {
+            UTIL.exec(controller, action);
+        }
+    }
+};
+
+let observerOptions = {
+    root: document.querySelector(".app-container"),
+    rootMargin: "0px",
+    threshold: 0.75
+};
+
+const indexCallback = function(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            TweenLite.from(".pt-page-1", 2, {
+                x: -50,
+                ease: Elastic.easeOut,
+                autoAlpha: 0
+            });
+
+            APP.Index.init();
+        }
+    });
+};
+
+const aboutCallback = function(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            TweenLite.set(".pt-page-2", { autoAlpha: 0, x: -50 });
+            TweenLite.to(".pt-page-2", 2, {
+                x: 0,
+                ease: Elastic.easeOut,
+                autoAlpha: 1
+            });
+            let pages = $(".pt-page").not(".pt-page-2");
+            TweenLite.set(pages, { autoAlpha: 0 });
+            APP.About.init();
+        }
+    });
+};
+
+$("#nav_bar nav a")
+    .not(".no-smoothState")
+    .off("click")
+    .on("click", function(e) {
+        e.preventDefault();
+        let content = $("#pages")
+            .smoothState()
+            .data("smoothState");
+        var href = $(this).attr("href");
+        console.log("smooth-State activated");
+        content.load(href);
+    });
+
+$(function() {
+    let options = {
+            onPopState: function(e) {
+                if (e.state !== null || typeof e.state !== undefined) {
+                    var url = window.location.href;
+                    var $page = $("#" + e.state.id);
+                    var page = $page.data("smoothState");
+
+                    if (typeof page.cache[page.href] !== "undefined") {
+                        var diffUrl =
+                            page.href !== url &&
+                            !utility.isHash(url, page.href);
+                        var diffState = e.state !== page.cache[page.href].state;
+
+                        if (diffUrl || diffState) {
+                            if (diffState) {
+                                page.clear(page.href);
+                            }
+                            page.load(url, false);
+                        }
+                    } else {
+                        //reload the page if page.cache[page.href] is undefined
+                        location.reload();
+                    }
+                }
+            },
+            prefetch: false,
+            anchors: "a.smoothState",
+            forms: "form.smoothState",
+            cacheLength: 0,
+            onStart: {
+                duration: 450, // Duration of our animation
+                render: function($container) {
+                    // Add your CSS animation reversing class
+                    $container.removeClass("pt-page-rotateSlideIn");
+                    $container.addClass("pt-page-rotateSlideOut");
+                    // Restart your animation
+                    smoothState.restartCSSAnimations();
+                }
+            },
+
+            onReady: {
+                duration: 450,
+                render: function($container, $newContent) {
+                    // Remove your CSS animation reversing class
+                    $container.removeClass("pt-page-rotateSlideOut");
+                    $container
+                        .hide()
+                        .html($newContent)
+                        .addClass("pt-page-rotateSlideIn")
+                        .show();
+                    // Inject the new content
+                }
+            },
+            onAfter: function() {
+                //$(document).ready();
+                UTIL.init();
+            }
+        },
+        smoothState = $("#pages")
+            .smoothState(options)
+            .data("smoothState");
+});
+UTIL.init();
+
+var cursor = $(".your-cursor");
+
+var posX = 0,
+    posY = 0;
+var mouseX = 0,
+    mouseY = 0;
+
+TweenMax.to({}, 0.016, {
+    repeat: -1,
+    onRepeat: function() {
+        posX += (mouseX - posX) / 9;
+        posY += (mouseY - posY) / 9;
+
+        TweenMax.set(cursor, {
+            css: {
+                left: mouseX,
+                top: mouseY
+            }
+        });
+    }
+});
+
+$(document).on("mousemove", function(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
+
+$("a").on("mouseenter", function() {
+    cursor.addClass("active");
+});
+$("a").on("mouseleave", function() {
+    cursor.removeClass("active");
+});

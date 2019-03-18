@@ -2,6 +2,7 @@ const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var webpack = require("webpack");
 
 module.exports = {
     devtool: "eval-cheap-module-source-map",
@@ -15,6 +16,7 @@ module.exports = {
     node: {
         fs: "empty"
     },
+
     module: {
         rules: [
             {
@@ -86,6 +88,10 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
         new HtmlWebpackPlugin({
             filename: "index.html",
             template: "./index.html",
@@ -95,6 +101,18 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: "about.html",
             template: "./about.html",
+            inject: true,
+            chunks: ["index"]
+        }),
+        new HtmlWebpackPlugin({
+            filename: "skills.html",
+            template: "./skills.html",
+            inject: true,
+            chunks: ["index"]
+        }),
+        new HtmlWebpackPlugin({
+            filename: "projects.html",
+            template: "./projects.html",
             inject: true,
             chunks: ["index"]
         }),

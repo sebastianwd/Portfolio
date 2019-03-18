@@ -106,6 +106,18 @@ module.exports = {
             inject: "body",
             chunks: ["index"]
         }),
+        new HtmlWebpackPlugin({
+            filename: "skills.html",
+            template: "./skills.html",
+            inject: "body",
+            chunks: ["index"]
+        }),
+        new HtmlWebpackPlugin({
+            filename: "projects.html",
+            template: "./projects.html",
+            inject: "body",
+            chunks: ["index"]
+        }),
         new CleanWebpackPlugin(buildPath),
         new FaviconsWebpackPlugin({
             // Your source logo

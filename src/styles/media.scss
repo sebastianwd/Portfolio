@@ -35,14 +35,19 @@
                 }
             }
         }
-        .pt-page {
+        .pt-page:not(.pt-page-4) {
             align-items: flex-start !important; /*solcuion para q scrolee*/
+            flex-direction: column;
             .block-1 {
-                flex-basis: 60% !important;
+                flex-basis: auto !important;
             }
             .block-2 {
-                flex-basis: 40% !important;
+                flex-basis: auto !important;
             }
         }
+    }
+
+    #pyramid {
+        display: none;
     }
 }
