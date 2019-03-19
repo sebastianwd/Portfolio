@@ -9,6 +9,7 @@ export const animationEnd =
     "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
 export function BlastTitle(_delimiter, _currPage) {
+    $(_currPage + " h1").css("opacity", "1");
     $(_currPage + " h1").blast({
         delimiter: _delimiter,
         tag: "span"

@@ -1,6 +1,7 @@
 require("normalize.css/normalize.css");
 require("./styles/index.scss");
 require("./styles/media.scss");
+require("./styles/gallery.scss");
 require("../node_modules/jquery/dist/jquery");
 import $ from "jquery";
 window.jQuery = $;
@@ -24,6 +25,7 @@ const APP = {
             console.log("Index");
 
             const curPage = ".pt-1";
+
             BlastTitle("character", curPage);
 
             setTimeout(() => {
@@ -280,10 +282,9 @@ $(function() {
                     // Remove your CSS animation reversing class
                     $container.removeClass("pt-page-rotateSlideOut");
                     $container
-                        .hide()
-                        .html($newContent)
                         .addClass("pt-page-rotateSlideIn")
-                        .show();
+                        .html($newContent);
+
                     // Inject the new content
                 }
             },
