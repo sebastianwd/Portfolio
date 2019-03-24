@@ -1,7 +1,9 @@
 @import "../../node_modules/animate.css/animate.min.css";
 @import "../../node_modules/rfs/scss";
+@import "../../node_modules/font-awesome/css/font-awesome.min.css";
 @import "./media.scss";
 @import "./transition.scss";
+@import "../../node_modules/bootstrap-4-grid//scss//grid.scss";
 @import url("https://fonts.googleapis.com/css?family=Laila");
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=La+Belle+Aurore");
@@ -24,7 +26,6 @@
 
   .<link rel="stylesheet" media="all and (min-color-index: 256)" href="http://foo.bar.com/stylesheet.css" />
 */
-$keyBreakpoint: 640px;
 
 $color-darkest: rgb(27, 27, 27);
 $color-darker: #181818;
@@ -92,6 +93,7 @@ $font-exo: "Exo", sans-serif;
 }
 html {
     overflow: hidden;
+    min-height: 100vh;
 }
 html,
 body {
@@ -241,6 +243,7 @@ nav {
         visibility: hidden;
         position: absolute;
         height: 100%;
+
         width: 100%;
         background-image: url("../assets/background.svg");
         background-attachment: fixed;
@@ -264,6 +267,9 @@ nav {
     flex: 1 0;
     min-height: 0; /*funcionara para algo esta vaina?*/
     overflow: auto;
+}
+.block-12 {
+    flex-basis: 100%;
 }
 
 .block-1 {
@@ -433,4 +439,23 @@ p .blast {
 #myCanvas {
     margin: 0 auto;
     width: 60%;
+}
+
+.loading-bg {
+    content: "";
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: #252323 url(../assets/loading.svg) no-repeat 50% 35%;
+    background-size: 60px auto;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    z-index: 97;
+}
+
+.loading-bg._loaded {
+    opacity: 0;
 }
