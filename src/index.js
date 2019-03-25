@@ -16,6 +16,8 @@ require("./pagetransitions.js");
 import { BlastTitle, animationEnd } from "./pagetransitions.js";
 import { TweenLite, Power2, TimelineLite } from "gsap/TweenMax";
 
+const $loader = $(".loading-bg");
+
 const APP = {
     common: {
         init: function() {
@@ -24,6 +26,23 @@ const APP = {
     },
     Index: {
         init: function() {
+            $("#contactForm").submit(function(e) {
+                var form = $(this);
+                var url = form.attr("action");
+                $.post(
+                    url,
+                    form.serialize(),
+                    function(data, textStatus, jqXHR) {
+                        if (data.result != "success") {
+                            alert("oops");
+                        } else {
+                            alert(":D");
+                        }
+                    },
+                    "json"
+                );
+                return false;
+            });
             console.log("Index");
 
             const curPage = ".pt-1";
@@ -252,6 +271,43 @@ const APP = {
                 maxGlare: 0.5
             });
         }
+    },
+    Contact: {
+        init: function() {
+            console.log("Contact");
+            const curPage = ".pt-5";
+
+            BlastTitle("character", curPage);
+            $("body")
+                .off("click", "#sendMessage")
+                .on("click", "#sendMessage", function(e) {
+                    e.preventDefault();
+                    if ($("#honeypot").val() !== "") {
+                        return false;
+                    }
+                    $("#contactForm").submit();
+                });
+
+            $("body")
+                .off("submit", "#contactForm")
+                .on("submit", "#contactForm", function(e) {
+                    const $form = $(this);
+                    let url = $form.attr("action");
+                    $.post(
+                        url,
+                        $form.serialize(),
+                        function(data, textStatus, jqXHR) {
+                            if (data.result != "success") {
+                                alert("oops");
+                            } else {
+                                alert(":D");
+                            }
+                        },
+                        "json"
+                    );
+                    return false;
+                });
+        }
     }
 };
 
@@ -368,7 +424,7 @@ $(function() {
                     // Restart your animation
                     smoothState.restartCSSAnimations();
                     setTimeout(() => {
-                        $(".loading-bg").removeClass("_loaded");
+                        $loader.removeClass("_loaded");
                     }, 200);
                 }
             },
@@ -386,7 +442,7 @@ $(function() {
                 }
             },
             onAfter: function() {
-                $(".loading-bg").addClass("_loaded");
+                $loader.addClass("_loaded");
                 //$(document).ready();
                 UTIL.init();
             }

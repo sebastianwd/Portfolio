@@ -116,6 +116,12 @@ module.exports = {
             inject: true,
             chunks: ["index"]
         }),
+        new HtmlWebpackPlugin({
+            filename: "contact.html",
+            template: "./contact.html",
+            inject: true,
+            chunks: ["index"]
+        }),
         new MiniCssExtractPlugin({
             filename: "styles.[contenthash].css"
         })

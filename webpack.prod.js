@@ -118,6 +118,12 @@ module.exports = {
             inject: "body",
             chunks: ["index"]
         }),
+        new HtmlWebpackPlugin({
+            filename: "contact.html",
+            template: "./contact.html",
+            inject: "body",
+            chunks: ["index"]
+        }),
         new CleanWebpackPlugin(buildPath),
         new FaviconsWebpackPlugin({
             // Your source logo

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sebastian Luque - Portfolio</title>
+    ${require('./src/partials/head.html')}
+
+</head>
+
+<body>
+    <div class="your-cursor"></div>
+    <div class="app-container ">
+        ${require('./src/partials/navbar.html')}
+
+
+        <div class="main-container home-page" data-pt-perspective="">
+            <div class="loading-bg"></div>
+            <div class=" pt-page pt-page-1 pt-page-current " id="pages" data-pt-secondary="">
+                <section class="block-1 pt-5">
+                    <span class="tags top-tags" style="border-bottom: 65px solid transparent;"> &lt;html&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&lt;body&gt; </span>
+                    <div class="text-zone" style="align-self: center">
+
+                        <h1 class="text-cyan">Contacto</h1>
+                        <span class="tags">&nbsp;&nbsp;&nbsp;&lt;/h1&gt;</span>
+
+                        <form id="contactForm" class="row input-container gform" method="POST" style="clear: none;"
+                            action="https://script.google.com/macros/s/AKfycbwS1NBUrkPWEEt0MEe_4SoP7yjpuSTBBR8f-0eZMA/exec">
+                            <input id="honeypot" type="text" name="honeypot" value="" aria-hidden="true" />
+
+                            <div class="col-md-6 col-sm-12">
+                                <div class="styled-input wide">
+                                    <input type="text" name="name" required />
+                                    <label>Nombre</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="styled-input wide">
+                                    <input type="email" required name="email" />
+                                    <label>E-mail</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <div class="styled-input wide">
+                                    <input type="text" required name="subject" />
+                                    <label>Asunto</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <div class="styled-input wide">
+                                    <textarea required name="message"></textarea>
+                                    <label>Mensaje</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <button class="btn-lrg submit-btn" type="button" id="sendMessage">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                    <span class="tags bottom-tags"> &nbsp;&nbsp;&nbsp;&lt;/body&gt;<br> &lt;/html&gt; </span>
+                </section>
+                <div class="block-2">
+
+
+                </div>
+                <div class="_load" data-load="Contact"></div>
+            </div>
+            <!-- ... -->
+        </div>
+
+    </div>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <div id="rotate"></div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-101423651-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-101423651-2');
+
+    </script>
+</body>
+
+</html>
