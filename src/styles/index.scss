@@ -411,6 +411,15 @@ p .blast {
 //     background-color: $color-dark;
 // }
 
+#scene {
+    .bg-1 {
+        background-image: url("../assets/parallax-01.png");
+    }
+    .bg-2 {
+        background-image: url("../assets/parallax-0.png");
+    }
+}
+
 .slideY {
     transition: all;
     animation: slideY 1s;
