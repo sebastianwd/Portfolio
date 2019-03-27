@@ -414,9 +414,15 @@ p .blast {
 #scene {
     .bg-1 {
         background-image: url("../assets/parallax-01.png");
+        background: transparent;
+
+        background-size: cover;
     }
     .bg-2 {
         background-image: url("../assets/parallax-0.png");
+        background: transparent;
+
+        background-size: cover;
     }
 }
 
