@@ -148,6 +148,11 @@ a {
     background: #b3d4fc;
     text-shadow: none;
 }
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
 
 .app-container {
     @include flx-c(100%);
@@ -608,4 +613,16 @@ input[type="checkbox"]:checked + label {
     width: 100%;
     transition: 0.4s;
     left: 0;
+}
+input:invalid,
+textarea:invalid {
+    box-shadow: none;
+}
+
+#contactForm.submitted .styled-input input:invalid ~ .focus-border,
+#contactForm.submitted .styled-input textarea:invalid ~ .focus-border {
+    width: 100%;
+    transition: 0.4s;
+    left: 0;
+    background-color: red;
 }

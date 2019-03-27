@@ -281,16 +281,28 @@ const APP = {
             $("body")
                 .off("click", "#sendMessage")
                 .on("click", "#sendMessage", function(e) {
-                    e.preventDefault();
                     if ($("#honeypot").val() !== "") {
                         return false;
                     }
-                    $("#contactForm").submit();
+                    $("#contactForm").addClass("submitted");
+
+                    // var self = this;
+                    // setTimeout(function() {
+                    //     self.className = "loading";
+                    // }, 125);
+
+                    // $("#contactForm").submit();
                 });
 
             $("body")
                 .off("submit", "#contactForm")
                 .on("submit", "#contactForm", function(e) {
+                    if ($("#honeypot").val() !== "") {
+                        return false;
+                    }
+
+                    $("#sendMessage").addClass("loading");
+
                     const $form = $(this);
                     let url = $form.attr("action");
                     $.post(
@@ -298,13 +310,22 @@ const APP = {
                         $form.serialize(),
                         function(data, textStatus, jqXHR) {
                             if (data.result != "success") {
-                                alert("oops");
+                                $("#sendMessage").removeClass("loading");
                             } else {
-                                alert(":D");
+                                setTimeout(function() {
+                                    $("#sendMessage").addClass("ready");
+                                }, 1000);
+                                setTimeout(function() {
+                                    $("#sendMessage").removeClass(
+                                        "ready  loading"
+                                    );
+                                }, 3500);
                             }
+                            $("#contactForm").removeClass("submitted");
                         },
                         "json"
                     );
+
                     return false;
                 });
         }
