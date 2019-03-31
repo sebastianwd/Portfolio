@@ -57,23 +57,24 @@ module.exports = {
 
             {
                 // Load all images as base64 encoding if they are smaller than 8192 bytes
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(ttf|eot|woff|woff2)$/,
+                // exclude: /img/,
                 use: [
                     {
                         loader: "url-loader",
                         options: {
                             // On development we want to see where the file is coming from, hence we preserve the [path]
-                            name: "[path][name].[ext]?hash=[hash:20]",
-                            limit: 8192
+                            name: "fonts/[name].[ext]",
+                            limit: 7192
                         }
                     }
                 ]
             },
             {
-                test: /\.(ttf|eot|woff|woff2)$/,
+                test: /\.(png|jpg|gif|svg)$/,
                 loader: "file-loader",
                 options: {
-                    name: "fonts/[name].[ext]"
+                    name: "[path][name].[ext]?hash=[hash:20]"
                 }
             },
             {

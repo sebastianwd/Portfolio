@@ -15,6 +15,10 @@ require("./gallery");
 require("./pagetransitions.js");
 import { BlastTitle, animationEnd } from "./pagetransitions.js";
 import { TweenLite, Power2, TimelineLite } from "gsap/TweenMax";
+function requireAll(r) {
+    r.keys().forEach(r);
+}
+requireAll(require.context("../img/", true, /\.jpg$/));
 
 const $loader = $(".loading-bg");
 
@@ -270,6 +274,25 @@ const APP = {
                 glare: true,
                 maxGlare: 0.5
             });
+
+            const children = $(".img-wrap");
+            TweenLite.set(children, { autoAlpha: 0, scale: 0.7 });
+
+            let index = 0;
+
+            function animateNextChild() {
+                if (index == children.length) return;
+
+                TweenLite.to(children.eq(index++), 0.8, {
+                    autoAlpha: 1,
+                    scale: 1
+                });
+                setTimeout(() => {
+                    animateNextChild();
+                }, 200);
+            }
+
+            animateNextChild();
         }
     },
     Contact: {
