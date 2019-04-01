@@ -126,7 +126,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: "google1682f38a8d13574e.html",
-            template: "./google1682f38a8d13574e.html"
+            inject: false
         }),
         new CleanWebpackPlugin(buildPath),
         new FaviconsWebpackPlugin({
