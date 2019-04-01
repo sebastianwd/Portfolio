@@ -54,75 +54,64 @@
 
 
         <div class="main-container home-page" data-pt-perspective="">
+            <div class="loading-bg"></div>
+            <div class=" pt-page pt-page-1 pt-page-current " id="pages" data-pt-secondary="">
+                <section class="block-1 pt-5">
+                    <span class="tags top-tags" style="border-bottom: 65px solid transparent;"> &lt;html&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&lt;body&gt; </span>
+                    <div class="text-zone" style="align-self: center">
 
-            <div class=" pt-page pt-page-3 pt-page-current " id="pages" data-pt-secondary="">
-                <section class="block-1 pt-3">
-                    <span class="tags top-tags"> &lt;html&gt;<br> &nbsp;&nbsp;&nbsp;&lt;body&gt; </span>
-                    <div class="text-zone">
-                        <h1 class="text-cyan">Habilidades y Experiencia</h1>
+                        <h1 class="text-cyan">Contacto</h1>
                         <span class="tags">&nbsp;&nbsp;&nbsp;&lt;/h1&gt;</span>
-                        <p class=""> Mi principal área de práctica e interés es el desarrollo front-end con el uso de
-                            frameworks o librerías,
-                            principalmente jQuery y React. </p>
-                        <p> Además de HTML, CSS y JS(ES6), poseo experiencia con git, npm, SCSS, bootstrap, webpack,
-                            animaciones con <a rel="noopener" target="_blank" href="https://greensock.com/">GSAP</a> y
-                            otros
-                            conocimientos
-                            misceláneos.
-                        </p>
-                        <p> Considero también tener una sólida base de conocimiento full-stack. He
-                            desarrollado pequeñas aplicaciones web utilizando APIs y digitando código back-end en .NET
-                            y Java. He hecho uso de SQL y MySQL como manejadores de bases de datos.
-                        </p>
 
+                        <form id="contactForm" class="row input-container gform" method="POST" style="clear: none;"
+                            action="https://script.google.com/macros/s/AKfycbwS1NBUrkPWEEt0MEe_4SoP7yjpuSTBBR8f-0eZMA/exec">
+                            <input id="honeypot" type="text" name="honeypot" value="" aria-hidden="true" />
 
+                            <div class="col-md-6 col-sm-12">
+                                <div class="styled-input wide">
+                                    <input type="text" name="name" required />
+                                    <label>Nombre</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="styled-input wide">
+                                    <input type="email" required name="email" />
+                                    <label>E-mail</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <div class="styled-input wide">
+                                    <input type="text" required name="subject" />
+                                    <label>Asunto</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <div class="styled-input wide">
+                                    <textarea required name="message" style="resize: none;"></textarea>
+                                    <label>Mensaje</label>
+                                    <span class="focus-border"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 ml-auto">
+                                <button type="submit" id="sendMessage">Enviar</button>
+
+                            </div>
+                        </form>
                     </div>
                     <span class="tags bottom-tags"> &nbsp;&nbsp;&nbsp;&lt;/body&gt;<br> &lt;/html&gt; </span>
                 </section>
-
                 <div class="block-2">
-                    <canvas width="500" height="500" id="myCanvas">
-                        <ul>
-                            <li> <a href="https://en.wikipedia.org/wiki/HTML" target="_blank">HTML</a></li>
-                            <li><a data-weight="25" rel="noopener" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets"
-                                    target="_blank">CSS</a></li>
-                            <li><a data-weight="25" rel="noopener" href="https://en.wikipedia.org/wiki/JavaScript"
-                                    target="_blank">JavaScript</a></li>
-                            <li><a data-weight="25" rel="noopener" href="https://dotnet.microsoft.com/apps/aspnet/mvc"
-                                    target="_blank">ASP.NET MVC</a></li>
-                            <li><a data-weight="24" rel="noopener" href="https://en.wikipedia.org/wiki/Representational_state_transfer"
-                                    target="_blank">REST</a></li>
-                            <li><a data-weight="14" href="https://www.json.org/" target="_blank">JSON</a></li>
-                            <li><a data-weight="27" href="https://reactjs.org/" target="_blank">React</a></li>
-                            <li><a data-weight="26" href="https://datatables.net/" target="_blank">DataTablesJS</a></li>
-                            <li><a data-weight="21" href="https://en.wikipedia.org/wiki/Node.js" target="_blank">Node⠀JS</a></li>
-                            <li><a data-weight="17" href="https://git-scm.com/" target="_blank">Git</a></li>
-                            <li><a data-weight="17" href="https://es.wikipedia.org/wiki/Internet_Information_Services"
-                                    target="_blank">IIS</a></li>
-                            <li><a data-weight="23" href="https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)"
-                                    target="_blank">Bootstrap</a></li>
-                            <li><a data-weight="15" href="https://en.wikipedia.org/wiki/Sass_(stylesheet_language)"
-                                    target="_blank">SASS</a></li>
-                            <li><a data-weight="20" href="https://en.wikipedia.org/wiki/Responsive_web_design" target="_blank">RxJs</a></li>
-                            <li><a data-weight="19" href="https://en.wikipedia.org/wiki/JQuery" target="_blank">jQuery</a></li>
-                            <li>
-                                <a data-weight="19" href="https://dotnet.microsoft.com/apps/aspnet/apis" target="_blank">ASP.NET⠀Web⠀APIs</a></li>
-                            <li><a data-weight="19" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
-                                    target="_blank">CSS⠀Flexbox</a></li>
-                            <li><a data-weight="19" href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/"
-                                    target="_blank">Windows⠀Forms</a></li>
-                            <li><a data-weight="19" href="https://www.npmjs.com/" target="_blank">npm</a></li>
-                            <li><a data-weight="19" href="https://webpack.js.org/" target="_blank">webpack</a></li>
-                            <li><a data-weight="19" href="https://es.wikipedia.org/wiki/Single-page_application" target="_blank">SPAs</a></li>
-                        </ul>
-                    </canvas>
+
 
                 </div>
-                <div class="_load" data-load="Skills"></div>
+                <div class="_load" data-load="Contact"></div>
             </div>
             <!-- ... -->
-
-
         </div>
 
     </div>
@@ -134,8 +123,8 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'UA-137378399-1');
+
     </script>
 <script type="text/javascript" src="index.eff62f7bcbd15b89a0e4.js"></script></body>
 

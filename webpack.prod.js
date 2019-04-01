@@ -124,10 +124,6 @@ module.exports = {
             inject: "body",
             chunks: ["index"]
         }),
-        new HtmlWebpackPlugin({
-            filename: "google1682f38a8d13574e.html",
-            inject: false
-        }),
         new CleanWebpackPlugin(buildPath),
         new FaviconsWebpackPlugin({
             // Your source logo
