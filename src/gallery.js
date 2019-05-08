@@ -388,6 +388,7 @@ var classie = require("classie");
             gridImg = gridItem.querySelector("img"),
             gridImgOffset = gridImg.getBoundingClientRect(),
             self = this;
+        let sidebarWidth = document.querySelector(".sidebar").offsetWidth;
 
         classie.remove(this.previewEl, "preview--open");
         classie.remove(this.previewEl, "preview--image-loaded");
@@ -399,6 +400,7 @@ var classie = require("classie");
         classie.add(this.originalImg, "animate");
 
         // set the transform to the original/large image
+        debugger;
         var win = this._getWinSize(),
             dx =
                 gridImgOffset.left +
@@ -407,7 +409,8 @@ var classie = require("classie");
                     ? 1 - Math.abs(this.options.imgPosition.x)
                     : Math.abs(this.options.imgPosition.x)) *
                     win.width +
-                    (this.options.imgPosition.x * win.width) / 2),
+                    (this.options.imgPosition.x * win.width) / 2) -
+                (sidebarWidth > 70 ? 0 : 60), // 60 es el width del sidebar
             dy =
                 gridImgOffset.top +
                 gridImg.offsetHeight / 2 -
@@ -415,7 +418,8 @@ var classie = require("classie");
                     ? 1 - Math.abs(this.options.imgPosition.y)
                     : Math.abs(this.options.imgPosition.y)) *
                     win.height +
-                    (this.options.imgPosition.y * win.height) / 2),
+                    (this.options.imgPosition.y * win.height) / 2) -
+                (sidebarWidth > 70 ? 60 : 0),
             z = gridImg.offsetWidth / this.originalImg.offsetWidth;
 
         this.originalImg.style.WebkitTransform =

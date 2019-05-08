@@ -64,7 +64,7 @@ module.exports = {
                         loader: "url-loader",
                         options: {
                             // On development we want to see where the file is coming from, hence we preserve the [path]
-                            name: "fonts/[name].[ext]",
+                            name: "fonts/[name].[ext]?hash=[hash:20]",
                             limit: 7192
                         }
                     }
@@ -74,7 +74,7 @@ module.exports = {
                 test: /\.(png|jpg|gif|svg)$/,
                 loader: "file-loader",
                 options: {
-                    name: "[path][name].[ext]?hash=[hash:20]"
+                    name: "[path][name].[ext]"
                 }
             },
             {

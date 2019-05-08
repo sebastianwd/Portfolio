@@ -18,7 +18,7 @@ import { TweenLite, Power2, TimelineLite } from "gsap/TweenMax";
 function requireAll(r) {
     r.keys().forEach(r);
 }
-requireAll(require.context("../img/", true, /\.jpg$/));
+requireAll(require.context("../img/", true, /\.(png|jpg|gif|svg)$/));
 
 const $loader = $(".loading-bg");
 
@@ -221,11 +221,13 @@ const APP = {
                             onEndCallbackFn();
                         }
                     };
+                let sidebarWidth = document.querySelector(".sidebar")
+                    .offsetWidth;
 
                 new GridFx(document.querySelector(".grid"), {
                     imgPosition: {
-                        x: -0.5,
-                        y: 1
+                        x: sidebarWidth > 70 ? -0.49 : -0.475,
+                        y: sidebarWidth > 70 ? 1.085 : 1
                     },
                     onOpenItem: function(instance, item) {
                         instance.items.forEach(function(el) {
@@ -259,7 +261,6 @@ const APP = {
                                 el.style.WebkitTransform = "scale3d(1,1,1)";
                                 el.style.transform = "scale3d(1,1,1)";
                                 el.style.opacity = 1;
-
                                 onEndTransition(el, function() {
                                     el.style.transition = "none";
                                     el.style.WebkitTransform = "none";

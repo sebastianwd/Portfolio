@@ -69,7 +69,7 @@ module.exports = {
                     {
                         loader: "url-loader",
                         options: {
-                            name: "fonts/[name].[ext]",
+                            name: "fonts/[name].[ext]?hash=[hash:20]",
                             limit: 6192
                         }
                     }
@@ -79,7 +79,8 @@ module.exports = {
                 test: /\.(png|jpg|gif|svg)$/,
                 loader: "file-loader",
                 options: {
-                    name: "[name].[hash:20].[ext]"
+                    // name: "[name].[hash:20].[ext]"
+                    name: "[name].[ext]"
                 }
             },
             {
