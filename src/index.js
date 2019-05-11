@@ -14,7 +14,7 @@ require("../node_modules/smoothstate-cachefix/smoothState");
 require("./gallery");
 require("./pagetransitions.js");
 import { BlastTitle, animationEnd } from "./pagetransitions.js";
-import { TweenLite, Power2, TimelineLite } from "gsap/TweenMax";
+import { TweenLite, TimelineLite } from "gsap/TweenMax";
 function requireAll(r) {
     r.keys().forEach(r);
 }
