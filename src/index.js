@@ -416,7 +416,7 @@ const aboutCallback = function(entries, observer) {
     });
 };
 
-$("#nav_bar nav a")
+$("#nav_bar nav a , a.smoothS")
     .not(".no-smoothState")
     .off("click")
     .on("click", function(e) {
