@@ -26,6 +26,16 @@ const APP = {
     common: {
         init: function() {
             console.log("js en común");
+            $(" a.smoothS")
+                .off("click")
+                .on("click", function(e) {
+                    e.preventDefault();
+                    let content = $("#pages")
+                        .smoothState()
+                        .data("smoothState");
+                    var href = $(this).attr("href");
+                    content.load(href);
+                });
         }
     },
     Index: {
@@ -416,7 +426,7 @@ const aboutCallback = function(entries, observer) {
     });
 };
 
-$("#nav_bar nav a , a.smoothS")
+$("#nav_bar nav a")
     .not(".no-smoothState")
     .off("click")
     .on("click", function(e) {
