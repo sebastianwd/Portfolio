@@ -27,7 +27,7 @@
         "font-awesome": "^4.7.0",
         "gsap": "^2.1.2",
         "imagesloaded": "^4.1.4",
-        "jquery": "^3.3.1",
+        "jquery": "^3.4.0",
         "jquery-tagcanvas": "^2.9.0",
         "jquery.ripples": "^0.6.2",
         "masonry-layout": "^4.2.2",
