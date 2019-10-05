@@ -10,7 +10,7 @@ module.exports = {
         index: "./src/index.js"
     },
     devServer: {
-        port: 5500,
+        port: 8080,
         contentBase: path.join(__dirname, "dist")
     },
     node: {
