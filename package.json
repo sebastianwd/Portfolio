@@ -25,7 +25,7 @@
         "bootstrap-4-grid": "^2.4.1",
         "classie": "^1.0.0",
         "font-awesome": "^4.7.0",
-        "gsap": "^2.1.2",
+        "gsap": "^3.6.0",
         "imagesloaded": "^4.1.4",
         "jquery": "^3.3.1",
         "jquery-tagcanvas": "^2.9.0",
